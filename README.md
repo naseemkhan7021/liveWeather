@@ -1,6 +1,5 @@
 # Getting Started with Create React App
 
-# This is live readme.md file no need to any extension 😯😯😍😍
 
 clone this repo.\
 `npm i` than make .env according to `config.env` 
