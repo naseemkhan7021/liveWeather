@@ -1,14 +1,13 @@
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./public/**/*.{html}"
+    "./src/**/*.{js,jsx,ts,tsx}"
   ],
+  darkMode: 'class', //media,class ,bool
   theme: {
     // screens: {
     //   'my_md': { 'max': '1542px' },
     // },
     extend: {
-      darkMode: false,
       colors: {
         // Configure your color palette here
         // primary secondary and tertiary  1542

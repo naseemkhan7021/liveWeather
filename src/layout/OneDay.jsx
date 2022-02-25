@@ -51,11 +51,14 @@ export default function OneDay() {
                          }}
                     >
                          {/* <CartesianGrid strokeDasharray="" /> */}
-                         <XAxis internval={0} dataKey="day" tick={{ fontSize: 11, fill: '#ffff' }} >
-                              <Label stroke="#ffff" value={`${cityName}'s 1 Day's`} offset={-5} position="insideBottom" />
+                         {/* fill: '#ffff' */}
+                         <XAxis internval={0} dataKey="day" tick={{ fontSize: 11 }} >
+                              <Label value={`${cityName}'s 1 Day's`} offset={-5} position="insideBottom" />
                          </XAxis>
-                         <YAxis dataKey="" stroke={'#ffff'} tick={{ fontSize: 10 }} >
-                              <Label stroke="#ffff" value={`Tempreture`} angle={90} />
+                         {/* stroke={'#ffff'} */}
+                         <YAxis dataKey="" tick={{ fontSize: 10 }} >
+                              {/* stroke="#ffff" */}
+                              <Label value={`Tempreture`} angle={90} />
                          </YAxis>
                          <Tooltip />
                          <Area dot type="monotone" activeDot={{ r: 8 }} dataKey="temp" stroke="rgb(182, 73, 0)" fill="rgba(255, 154, 86, 0.336)" />

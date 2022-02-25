@@ -4,13 +4,33 @@ import { getCurrentWeatherDataApi, getWeatherByCityNameApi } from '../api/getDat
 const DataContext = createContext();
 const DataUpdateContext = createContext();
 
-// costom hook 
+// costom hook start
+// handel them
+export const useDarkMode = () => {
+     const [them, setThem] = useState('dark');
+     const colorThem = them === 'dark' ? 'light' : 'dark';
+     useEffect(() => {
+          const root = window.document.documentElement;
+
+          root.classList.remove(colorThem);
+          root.classList.add(them);
+
+          // return () => {
+          //      second
+          // }
+     }, [them])
+     return [setThem, colorThem]
+}
+
 export function useDataContext() {
      return useContext(DataContext)
 }
 export function useDataUpdateContext() {
      return useContext(DataUpdateContext)
 }
+// costom hook end
+
+
 
 //  context provider
 export function DataProvider({ children }) {
@@ -35,6 +55,8 @@ export function DataProvider({ children }) {
                });
           }
      }, [weatherData, cityName, error]);
+
+     const [setThem, colorThem] = useDarkMode();
 
 
 
@@ -67,7 +89,7 @@ export function DataProvider({ children }) {
 
      return (
 
-          <DataContext.Provider value={{ weatherData, setCityName, cityName, geoLocation, oneDaySummery, setOneDaySummery }} >
+          <DataContext.Provider value={{ setThem, colorThem, weatherData, setCityName, cityName, geoLocation, oneDaySummery, setOneDaySummery }} >
                <DataUpdateContext.Provider value={{ currantLocationWeather, getWeatherByCityName }}>
                     {
                          children

@@ -4,15 +4,18 @@ import { useDataContext, useDataUpdateContext } from '../components/DataContext'
 export default function Navbar() {
      const [searchData, setSearchData] = useState('');
 
-     const { setCityName } = useDataContext();
+     const { setCityName, setThem, colorThem } = useDataContext();
      const { currantLocationWeather, getWeatherByCityName } = useDataUpdateContext();
-
 
      const onFormSubmit = e => {
           e.preventDefault()
           // setCityName(searchData)
           getWeatherByCityName(searchData)
           setSearchData('')
+     }
+     // <FontAwesomeIcon icon="fa-light fa-brightness" />
+     const themClick = () => {
+          setThem(colorThem)
      }
 
      return (
@@ -26,7 +29,7 @@ export default function Navbar() {
                {/* search input */}
                <div className="">
                     <form onSubmit={onFormSubmit} className='h-full relative'>
-                         <input value={searchData} onChange={e => setSearchData(e.target.value)} name="search" type="text" className="border border-solid outline-none focus:border-orange-400 focus:border-2 rounded-md transition duration-150 ease-out hover:ease-in h-full w-50 hover:w-96 pr-6 pl-9 rounded-lgfocus:outline-none" placeholder="Search anything..." />
+                         <input value={searchData} onChange={e => setSearchData(e.target.value)} name="search" type="text" className="border border-solid outline-none focus:border-orange-400 focus:border-2 rounded-md transition duration-150 ease-out hover:ease-in h-full w-50 hover:w-96 pr-6 pl-9 rounded-lgfocus:outline-none" placeholder="Search city..." />
                          <div className="absolute top-2 left-2">
                               <i className="fa fa-search text-gray-400 z-20 "></i>
                          </div>
@@ -34,7 +37,20 @@ export default function Navbar() {
                     </form>
                </div>
                {/* Button */}
-               <div>
+               <div className='flex'>
+                    <div onClick={themClick} className="flex items-center mr-3 cursor-pointer rounded-lg hover:bg-slate-200 box-border dark:outline-0 outline-4 outline-gray-300  py-1 px-3 dark:bg-slate-600 dark:hover:bg-slate-500">
+                         {
+                              colorThem === 'light' ? (
+
+                                   <i className="fa-solid fa-moon text-yellow-300 "></i>
+                              ) :
+
+
+                                   <i class="fa-solid fa-sun text-yellow-500"></i>
+                         }
+                         <span className={`ml-1 ${colorThem === 'light' ? 'text-white' : ''}`} ><strong>{colorThem === 'light' ? 'Dark' : 'Light'}</strong></span>
+                    </div>
+
                     <button onClick={currantLocationWeather} className='text-white font-medium px-3 cursor-pointer py-1 bg-orange-600 hover:bg-orange-700 rounded'>
                          Currant
                          <i className="pl-2 fa-solid fa-location-dot"></i>

@@ -6,7 +6,7 @@ import Map, { Marker, MapRef } from "react-map-gl";
 import { useDataContext } from './DataContext';
 
 export default function MapView() {
-     const { cityName, geoLocation } = useDataContext();
+     const { cityName, geoLocation, colorThem } = useDataContext();
      const { lat, lon } = geoLocation;
 
      let refs;
@@ -48,10 +48,12 @@ export default function MapView() {
 
                     initialViewState={viewport}
                     onViewportChange={(viewport) => setViewport(viewport)}
-                    mapStyle="mapbox://styles/mapbox/dark-v10"
+                    // mapStyle="mapbox://styles/mapbox/streets-v11"
+                    mapStyle={colorThem === 'light' ? 'mapbox://styles/mapbox/dark-v10' : 'mapbox://styles/mapbox/streets-v11'}
+               //{/*mapbox://styles/mapbox/dark-v10 */}
                >
                     <Marker latitude={lat} longitude={lon}>
-                         <i className="pl-2 fa-solid fa-location-dot text-red-500 text-xl"></i>
+                         <i className="pl-2 fa-solid fa-location-dot fa-bounce text-red-500 text-xl"></i>
                     </Marker>
                </Map>
           </>

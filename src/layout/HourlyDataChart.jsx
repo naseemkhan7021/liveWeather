@@ -23,10 +23,12 @@ export default function HourlyDataChart({ data }) {
                     >
                          {/* <CartesianGrid strokeDasharray="" /> */}
                          <XAxis internval={0} dataKey="dt" tick={false}>
-                              <Label stroke="#ffff" tick={{ fontSize: 11, fill: '#ffff' }} value={`${cityName}'s 48 Hours`} offset={10} position="insideBottom" />
+                              {/* stroke="#ffff" */}
+                              <Label tick={{ fontSize: 11 }} value={`${cityName}'s 48 Hours`} offset={10} position="insideBottom" />
                          </XAxis>
-                         <YAxis dataKey="Temp" tick={{ fontSize: 11, fill: '#ffff' }}  >
-                              <Label stroke="#ffff" value={`Tempreture`} angle={90} />
+                         <YAxis dataKey="Temp" tick={{ fontSize: 11 }}  >
+                              {/* stroke="#ffff" */}
+                              <Label value={`Tempreture`} angle={90} />
                          </YAxis>
                          <Tooltip />
                          <Area dot type="monotone" activeDot={{ r: 8 }} dataKey="Temp" stroke="rgb(182, 73, 0)" fill="rgba(255, 154, 86, 0.336)" />

@@ -7,11 +7,13 @@ import './App.css'
 function App() {
 
   return (
-    <div className="">
-      <Navbar />
-      <Main>
-        <HourlyData />
-      </Main>
+    <div >
+      <div className="dark:bg-slate-600">
+        <Navbar />
+        <Main>
+          <HourlyData />
+        </Main>
+      </div>
     </div>
   );
 }
