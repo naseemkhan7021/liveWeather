@@ -38,17 +38,17 @@ export default function Navbar() {
                </div>
                {/* Button */}
                <div className='flex'>
-                    <div onClick={themClick} className="flex items-center mr-3 cursor-pointer rounded-lg hover:bg-slate-200 box-border dark:outline-0 outline-4 outline-gray-300  py-1 px-3 dark:bg-slate-600 dark:hover:bg-slate-500">
+                    <div onClick={themClick} className="flex items-center mr-3 cursor-pointer rounded-lg bg-slate-200 hover:bg-slate-300 py-1 px-3 dark:bg-slate-600 dark:hover:bg-slate-500">
                          {
                               colorThem === 'light' ? (
 
-                                   <i className="fa-solid fa-moon text-yellow-300 "></i>
+                                   <i class="fa-solid fa-sun text-yellow-500"></i>
                               ) :
 
 
-                                   <i class="fa-solid fa-sun text-yellow-500"></i>
+                                   <i className="fa-solid fa-moon text-blue-300 "></i>
                          }
-                         <span className={`ml-1 ${colorThem === 'light' ? 'text-white' : ''}`} ><strong>{colorThem === 'light' ? 'Dark' : 'Light'}</strong></span>
+                         <span className={`ml-1 ${colorThem === 'light' ? 'text-white' : ''}`} ><strong>{colorThem === 'light' ? 'Light' : 'Dark'}</strong></span>
                     </div>
 
                     <button onClick={currantLocationWeather} className='text-white font-medium px-3 cursor-pointer py-1 bg-orange-600 hover:bg-orange-700 rounded'>

@@ -8,7 +8,7 @@ import { ICON_URL } from '../veriable';
 export default function OneDay() {
      const [chartData, setChartData] = useState([])
 
-     const { oneDaySummery, cityName } = useDataContext();
+     const { oneDaySummery, cityName, colorThem } = useDataContext();
      const { feels_like } = oneDaySummery;
      // let dataf = []
      // console.log('key ->', Object.keys(feels_like));
@@ -29,12 +29,12 @@ export default function OneDay() {
 
      // console.log('chartData -> ', chartData);
      return (
-          <div className='dark:bg-slate-800 dark:text-white bg-white md:mt-6 md:my-0 my-9 border shadow-md rounded-lg'>
+          <div className='dark:bg-slate-800 bg-white md:mt-6 md:my-0 my-9 border shadow-md rounded-lg'>
                {
                     oneDaySummery && (
                          <div className="flex justify-center">
                               <img className='object-cover ' src={`${ICON_URL}${oneDaySummery && oneDaySummery.icon}@2x.png`} alt="teprature" />
-                              <h2 className='text-center mt-9 text-2xl'>{oneDaySummery.dt}'s Forecast <sub>{oneDaySummery.main}</sub> </h2>
+                              <h2 className='dark:text-white text-center mt-9 text-2xl'>{oneDaySummery.dt}'s Forecast <sub>{oneDaySummery.main}</sub> </h2>
                          </div>
                     )
                }
@@ -52,13 +52,13 @@ export default function OneDay() {
                     >
                          {/* <CartesianGrid strokeDasharray="" /> */}
                          {/* fill: '#ffff' */}
-                         <XAxis internval={0} dataKey="day" tick={{ fontSize: 11 }} >
-                              <Label value={`${cityName}'s 1 Day's`} offset={-5} position="insideBottom" />
+                         <XAxis stroke={colorThem === 'light' ? "#ffff" : 'black'} internval={0} dataKey="day" tick={{ fontSize: 11 }} >
+                              <Label value={`${cityName}'s 1 Day's`} offset={-5} position="insideBottom" stroke={colorThem === 'light' ? "#ffff" : ''} />
                          </XAxis>
                          {/* stroke={'#ffff'} */}
-                         <YAxis dataKey="" tick={{ fontSize: 10 }} >
+                         <YAxis stroke={colorThem === 'light' ? "#ffff" : 'black'} dataKey="" tick={{ fontSize: 10 }} >
                               {/* stroke="#ffff" */}
-                              <Label value={`Tempreture`} angle={90} />
+                              <Label value={`Tempreture`} stroke={colorThem === 'light' ? "#ffff" : ''} angle={90} />
                          </YAxis>
                          <Tooltip />
                          <Area dot type="monotone" activeDot={{ r: 8 }} dataKey="temp" stroke="rgb(182, 73, 0)" fill="rgba(255, 154, 86, 0.336)" />

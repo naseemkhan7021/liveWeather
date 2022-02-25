@@ -23,7 +23,7 @@ export default function Main({ children }) {
 
                               <div className="text-center flex items-center justify-center my-3">
                                    <img className='z-0 top-3 right-1 lg:w-1/4 md:w-1/3 sm:w-1/4  w-3/12 object-cover' src={`${ICON_URL}${weather && weather[0].icon}@2x.png`} alt="teprature" />
-                                   <h1 className='inline  md:text-5xl sm:text-4xl text-3xl bottom-1/4 font-normal'><span className='z-10'>{main && main.temp}°C</span>
+                                   <h1 className='inline  md:text-5xl sm:text-4xl text-3xl bottom-1/4 font-normal'><span className='z-10'>{main && main.temp} <sup>°C</sup> </span>
                                         <span className='text-lg capitalize'>{weather && weather[0].main}</span>
                                    </h1>
                               </div>
@@ -32,7 +32,7 @@ export default function Main({ children }) {
 
                          <div className="lg:border-l-2 lg:border-t-0 lg:ml-3 lg:pl-5 lg:mt-0 lg:pt-0 md:mt-3 md:pt-5  md:border-t-2 border-gray-500 grid gap-4 grid-rows-2 grid-cols-4 place-items-center text-center">
                               <div>
-                                   <p className='pb-0 text-2xl'>{main && main.temp_max}°C</p>
+                                   <p className='pb-0 text-2xl'>{main && main.temp_max}<sup>°C</sup></p>
                                    <small>High</small>
 
                               </div>
@@ -41,7 +41,7 @@ export default function Main({ children }) {
                                    <small>Wind</small>
                               </div>
                               <div>
-                                   <p className='pb-0 text-2xl'>{main && main.feels_like}°C</p>
+                                   <p className='pb-0 text-2xl'>{main && main.feels_like}<sup>°C</sup></p>
                                    <small>Feels like</small>
                               </div>
                               <div>
