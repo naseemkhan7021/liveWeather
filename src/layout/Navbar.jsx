@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { useDataContext, useDataUpdateContext } from '../components/DataContext'
+import Alert from './Alert';
 
 export default function Navbar() {
      const [searchData, setSearchData] = useState('');
 
-     const { setCityName, setThem, colorThem } = useDataContext();
+     const { setCityName, setThem, colorThem, error, message } = useDataContext();
      const { currantLocationWeather, getWeatherByCityName } = useDataUpdateContext();
 
      const onFormSubmit = e => {
@@ -56,6 +57,8 @@ export default function Navbar() {
                          <i className="pl-2 fa-solid fa-location-dot"></i>
                     </button>
                </div>
+
+               {error && (<Alert error={message} />)}
           </div>
      )
 }

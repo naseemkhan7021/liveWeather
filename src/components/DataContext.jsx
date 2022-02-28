@@ -54,6 +54,12 @@ export function DataProvider({ children }) {
                     setCityName(data.name)
                });
           }
+          if (error) {
+               setTimeout(() => {
+                    setError(false)
+                    setMessage('')
+               }, 3000);
+          }
      }, [weatherData, cityName, error]);
 
      const [setThem, colorThem] = useDarkMode();
@@ -70,7 +76,6 @@ export function DataProvider({ children }) {
      }
 
      const getWeatherByCityName = (searchData) => {
-          setCityName(searchData);
           getWeatherByCityNameApi(searchData).then(responce => {
                if (responce.error) {
                     const { error } = responce;
@@ -81,6 +86,7 @@ export function DataProvider({ children }) {
                     const { data } = responce;
                     setWeatherData(data)
                     setGeoLocation({ lon: data.coord && data.coord.lon, lat: data.coord && data.coord.lat })
+                    setCityName(searchData);
                     setError(false)
                     setMessage('')
                }
@@ -89,7 +95,7 @@ export function DataProvider({ children }) {
 
      return (
 
-          <DataContext.Provider value={{ setThem, colorThem, weatherData, setCityName, cityName, geoLocation, oneDaySummery, setOneDaySummery }} >
+          <DataContext.Provider value={{ setThem, colorThem, weatherData, setCityName, cityName, geoLocation, oneDaySummery, setOneDaySummery, error, message }} >
                <DataUpdateContext.Provider value={{ currantLocationWeather, getWeatherByCityName }}>
                     {
                          children
