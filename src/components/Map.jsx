@@ -5,6 +5,9 @@ import Map, { Marker, MapRef } from "react-map-gl";
 // import './tem.css';
 import { useDataContext } from './DataContext';
 
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
+
 export default function MapView() {
      const { cityName, geoLocation, colorThem } = useDataContext();
      const { lat, lon } = geoLocation;
