@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css'
-import Map, { Marker, MapRef } from "!react-map-gl";
+import Map, { Marker, MapRef } from "react-map-gl";
 // import mapboxgl from 'mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 // import './tem.css';
 import { useDataContext } from './DataContext';
