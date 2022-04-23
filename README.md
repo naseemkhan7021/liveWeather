@@ -2,10 +2,9 @@
 - [click here 👉 to see app](https://seetodayweather.herokuapp.com/).
 ## demo screen
 1. light
-![d](https://user-images.githubusercontent.com/35251956/164892895-485f7916-17f3-48b0-8dd4-c574471ba553.PNG)
+![seetodayweather herokuapp com_](https://user-images.githubusercontent.com/35251956/164893135-e83ff917-3d58-4012-932a-6a82336ba10a.png)
 2. dark
-![d1](https://user-images.githubusercontent.com/35251956/164892975-58f62bc5-26d0-4e97-9bb3-eff309d9116c.PNG)
-
+![d](https://user-images.githubusercontent.com/35251956/164893145-383bf812-3198-4769-8d4e-d301788e0350.PNG)
 # Getting Started with Create React App
 
 clone this repo.\
