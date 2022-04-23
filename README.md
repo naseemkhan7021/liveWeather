@@ -1,5 +1,5 @@
 ## see the Demo 👇👇👨‍💻
-- [See Today Weather](https://seetodayweather.herokuapp.com/) by click.
+- [click here 👉 to see app](https://seetodayweather.herokuapp.com/).
 # Getting Started with Create React App
 
 clone this repo.\
